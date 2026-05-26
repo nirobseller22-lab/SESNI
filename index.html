@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Developer Nirob - AI Sensi Tool</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:linear-gradient(135deg,#020617,#0f172a,#111827,#1e293b);
+  color:white;
+  overflow-x:hidden;
+}
+
+.glass{
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(22px);
+  border:1px solid rgba(255,255,255,0.1);
+}
+
+.glow{
+  box-shadow:0 0 30px rgba(255,255,255,0.10);
+}
+
+.card{
+  transition:0.4s;
+}
+
+.card:hover{
+  transform:translateY(-6px) scale(1.02);
+}
+
+.marquee{
+  white-space:nowrap;
+  display:inline-block;
+  animation:marquee 18s linear infinite;
+}
+
+@keyframes marquee{
+  0%{transform:translateX(100%);}
+  100%{transform:translateX(-100%);}
+}
+
+.fade{
+  animation:fade 1s ease;
+}
+
+@keyframes floating {
+  0%{transform:translateY(0px);}
+  50%{transform:translateY(-10px);}
+  100%{transform:translateY(0px);}
+}
+
+.float{
+  animation:floating 4s ease-in-out infinite;
+}
+
+@keyframes glowPulse{
+  0%{box-shadow:0 0 10px rgba(255,255,255,0.05);}
+  50%{box-shadow:0 0 35px rgba(34,211,238,0.25);}
+  100%{box-shadow:0 0 10px rgba(255,255,255,0.05);}
+}
+
+.glow-animate{
+  animation:glowPulse 3s infinite;
+}
+
+@keyframes fade{
+  from{
+    opacity:0;
+    transform:translateY(20px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="fixed top-0 left-0 w-full z-50 bg-black/30 backdrop-blur-md border-b border-slate-700 overflow-hidden py-3">
+  <div class="marquee text-cyan-300 font-bold text-lg">
+    🔥 WELCOME TO DEVELOPER NIROB AI SENSI TOOL • 🎯 SMART HEADSHOT • ⚡ LIVE DPI BOOST • 🤖 AI SYSTEM • 🚀 PREMIUM EXPERIENCE •
+  </div>
+</div>
+
+<!-- LOGIN -->
+<div id="loginPage" class="min-h-screen flex items-center justify-center p-4 relative overflow-hidden">
+
+<div class="absolute inset-0 overflow-hidden">
+  <div class="absolute w-72 h-72 bg-cyan-400/10 rounded-full blur-3xl top-10 left-10 float"></div>
+  <div class="absolute w-96 h-96 bg-blue-400/10 rounded-full blur-3xl bottom-10 right-10 float"></div>
+</div>
+  <div class="glass rounded-[40px] p-10 w-full max-w-md text-center glow glow-animate fade border border-white/10 relative z-10">
+    <div class="w-24 h-24 mx-auto rounded-full glass flex items-center justify-center text-5xl mb-6 glow-animate float">
+🔐
+</div>
+
+<h1 class="text-5xl font-bold text-cyan-300 mb-4 tracking-wide">LOGIN ACCESS</h1>
+
+    <p class="text-slate-300 mb-8 text-lg leading-8">
+Enter your premium password to unlock the futuristic AI Sensitivity Experience.
+</p>
+
+    <input id="password"
+      type="password"
+      placeholder="Enter Password"
+      class="w-full p-4 rounded-3xl bg-white/5 border border-cyan-400/20 outline-none mb-5 text-center text-lg backdrop-blur-xl focus:border-cyan-400 transition-all duration-300 glow-animate">
+
+    <button onclick="login()"
+      class="w-full bg-cyan-500/20 hover:bg-cyan-400/30 border border-cyan-400/30 p-4 rounded-3xl font-bold text-lg transition-all glow glow-animate backdrop-blur-xl tracking-wide">
+      ✨ ENTER SYSTEM
+    </button>
+
+    <p id="loginMessage" class="mt-5 text-slate-300 text-lg"></p>
+
+<div class="mt-8 grid grid-cols-3 gap-3 text-center">
+  <div class="glass rounded-2xl p-3 border border-white/10">
+    <div class="text-2xl mb-1">🤖</div>
+    <p class="text-sm text-slate-300">AI</p>
+  </div>
+
+  <div class="glass rounded-2xl p-3 border border-white/10">
+    <div class="text-2xl mb-1">🎯</div>
+    <p class="text-sm text-slate-300">SENSI</p>
+  </div>
+
+  <div class="glass rounded-2xl p-3 border border-white/10">
+    <div class="text-2xl mb-1">⚡</div>
+    <p class="text-sm text-slate-300">DPI</p>
+  </div>
+</div>
+  </div>
+</div>
+
+<!-- WEBSITE -->
+<div id="website" class="hidden pt-24 pb-10 px-4 fade">
+
+<div class="max-w-6xl mx-auto space-y-8">
+
+<!-- TASKBAR -->
+<div class="glass rounded-[35px] p-4 sticky top-20 z-40 border border-white/10 backdrop-blur-2xl">
+  <div class="flex flex-wrap justify-center gap-3 text-center">
+
+    <button class="px-5 py-3 rounded-2xl glass hover:scale-105 transition-all glow-animate">
+      🏠 Home
+    </button>
+
+    <button class="px-5 py-3 rounded-2xl glass hover:scale-105 transition-all glow-animate">
+      🤖 AI Chat
+    </button>
+
+    <button class="px-5 py-3 rounded-2xl glass hover:scale-105 transition-all glow-animate">
+      🎯 Sensi
+    </button>
+
+    <button class="px-5 py-3 rounded-2xl glass hover:scale-105 transition-all glow-animate">
+      📱 Devices
+    </button>
+
+    <button class="px-5 py-3 rounded-2xl glass hover:scale-105 transition-all glow-animate">
+      ⚡ DPI
+    </button>
+
+    <button class="px-5 py-3 rounded-2xl glass hover:scale-105 transition-all glow-animate">
+      👨‍💻 Developer
+    </button>
+
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="glass rounded-[35px] p-10 text-center glow">
+  <h1 id="mainTitle" class="text-6xl font-bold text-cyan-300 mb-4">
+    🤖 AI SENSITIVITY TOOL
+  </h1>
+
+  <div class="w-44 h-44 mx-auto mb-6 rounded-full glass border border-cyan-400/20 flex items-center justify-center text-8xl glow-animate float">
+🤖
+</div>
+
+<div class="flex justify-center gap-3 flex-wrap mb-6">
+  <div class="glass px-5 py-3 rounded-2xl border border-white/10">🎯 AI Aim</div>
+  <div class="glass px-5 py-3 rounded-2xl border border-white/10">⚡ Smart DPI</div>
+  <div class="glass px-5 py-3 rounded-2xl border border-white/10">📱 Device AI</div>
+</div>
+
+<p class="text-slate-300 text-xl">
+    Smart Free Fire Sensitivity & DPI Generator
+  </p>
+</section>
+
+<!-- GENERATOR -->
+<section class="glass rounded-[35px] p-8">
+  <h2 class="text-4xl font-bold text-cyan-300 mb-8 text-center">
+    🎮 GENERATOR
+  </h2>
+
+  <div class="grid md:grid-cols-3 gap-5">
+
+    <div>
+      <label class="text-slate-300">📱 Mobile</label>
+      <select id="mobile" class="w-full mt-2 p-4 rounded-2xl bg-black/30 border border-slate-600 outline-none">
+        <option>Samsung J7</option>
+        <option>Samsung A12</option>
+        <option>Redmi Note 10</option>
+        <option>Redmi Note 11</option>
+        <option>Realme Narzo 50</option>
+        <option>Vivo Y20</option>
+        <option>OPPO A15</option>
+        <option>iPhone 11</option>
+        <option>iPhone 13</option>
+        <option>Infinix Hot 12</option>
+        <option>Tecno Spark 10</option>
+        <option>Poco X3 Pro</option>
+        <option>Asus ROG Phone</option>
+        <option>OnePlus 9</option>
+        <option>Huawei Nova 9</option>
+        <option>Google Pixel 7</option>
+      </select>
+    </div>
+
+    <div>
+      <label class="text-slate-300">💾 RAM</label>
+      <select id="ram" class="w-full mt-2 p-4 rounded-2xl bg-black/30 border border-slate-600 outline-none">
+        <option>2 GB</option>
+        <option>3 GB</option>
+        <option>4 GB</option>
+        <option>6 GB</option>
+        <option>8 GB</option>
+        <option>12 GB</option>
+      </select>
+    </div>
+
+    <div>
+      <label class="text-slate-300">🎯 Gameplay</label>
+      <select id="mode" class="w-full mt-2 p-4 rounded-2xl bg-black/30 border border-slate-600 outline-none">
+        <option>Headshot</option>
+        <option>Drag Aim</option>
+        <option>Balanced</option>
+        <option>Smooth Gameplay</option>
+      </select>
+    </div>
+
+  </div>
+
+  <button onclick="generateSensi()"
+    class="w-full mt-6 p-4 rounded-3xl bg-slate-700 hover:bg-slate-600 text-xl font-bold glow transition-all">
+    ⚡ GENERATE SENSI
+  </button>
+
+  <div id="result" class="hidden grid md:grid-cols-3 gap-5 mt-8">
+
+    <div class="glass rounded-3xl p-6 text-center card">
+      <h3 class="text-cyan-300 text-2xl font-bold">General</h3>
+      <p id="general" class="text-4xl mt-3"></p>
+    </div>
+
+    <div class="glass rounded-3xl p-6 text-center card">
+      <h3 class="text-cyan-300 text-2xl font-bold">Red Dot</h3>
+      <p id="redDot" class="text-4xl mt-3"></p>
+    </div>
+
+    <div class="glass rounded-3xl p-6 text-center card">
+      <h3 class="text-cyan-300 text-2xl font-bold">2X Scope</h3>
+      <p id="scope2" class="text-4xl mt-3"></p>
+    </div>
+
+    <div class="glass rounded-3xl p-6 text-center card">
+      <h3 class="text-cyan-300 text-2xl font-bold">4X Scope</h3>
+      <p id="scope4" class="text-4xl mt-3"></p>
+    </div>
+
+    <div class="glass rounded-3xl p-6 text-center card">
+      <h3 class="text-cyan-300 text-2xl font-bold">Sniper</h3>
+      <p id="sniper" class="text-4xl mt-3"></p>
+    </div>
+
+    <div class="glass rounded-3xl p-6 text-center card">
+      <h3 class="text-cyan-300 text-2xl font-bold">DPI</h3>
+      <p id="dpi" class="text-4xl mt-3"></p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ROBOT SECTION -->
+<section class="glass rounded-[35px] p-8 text-center overflow-hidden relative">
+
+<div class="absolute -top-10 -left-10 w-52 h-52 bg-cyan-400/10 rounded-full blur-3xl"></div>
+<div class="absolute -bottom-10 -right-10 w-52 h-52 bg-blue-400/10 rounded-full blur-3xl"></div>
+
+<div class="relative z-10">
+  <div class="text-9xl mb-5 float">🤖</div>
+
+  <h2 class="text-5xl font-bold text-cyan-300 mb-4">
+    AI ROBOT SYSTEM
+  </h2>
+
+  <p class="text-slate-300 text-lg max-w-3xl mx-auto leading-8">
+    Advanced futuristic robot assistant with smart gaming analysis, AI sensitivity prediction, DPI optimizer and live gameplay suggestions.
+  </p>
+
+  <div class="grid md:grid-cols-4 gap-4 mt-8">
+
+    <div class="glass rounded-3xl p-5 border border-white/10 card">
+      <div class="text-5xl mb-3">🧠</div>
+      <h3 class="text-xl font-bold text-cyan-300">Smart AI</h3>
+    </div>
+
+    <div class="glass rounded-3xl p-5 border border-white/10 card">
+      <div class="text-5xl mb-3">📡</div>
+      <h3 class="text-xl font-bold text-cyan-300">Live Scan</h3>
+    </div>
+
+    <div class="glass rounded-3xl p-5 border border-white/10 card">
+      <div class="text-5xl mb-3">⚡</div>
+      <h3 class="text-xl font-bold text-cyan-300">Boost Mode</h3>
+    </div>
+
+    <div class="glass rounded-3xl p-5 border border-white/10 card">
+      <div class="text-5xl mb-3">🎮</div>
+      <h3 class="text-xl font-bold text-cyan-300">Gaming AI</h3>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<!-- AI CHAT -->
+<section class="glass rounded-[35px] p-8">
+  <div class="flex justify-between items-center gap-4 flex-wrap mb-6">
+    <h2 class="text-4xl font-bold text-cyan-300">🤖 AI ASSISTANT</h2>
+
+    <button onclick="toggleAI()" id="aiButton"
+      class="bg-slate-700 hover:bg-slate-600 px-5 py-3 rounded-2xl font-bold glow">
+      AI: ON
+    </button>
+  </div>
+
+  <div id="chatBox" class="glass rounded-3xl p-5 h-[350px] overflow-y-auto border border-slate-700 relative">
+
+<div class="absolute top-4 right-4 flex gap-2">
+  <div class="w-3 h-3 rounded-full bg-green-400 animate-pulse"></div>
+  <div class="w-3 h-3 rounded-full bg-cyan-400 animate-pulse"></div>
+</div>
+    <div class="mb-4">
+      <div class="bg-slate-700 inline-block px-4 py-3 rounded-2xl max-w-[80%]">
+        👋 Hello Gamer! I am Developer Nirob AI Robot. Ask me about sensitivity, DPI, mobile optimization and gameplay.
+      </div>
+    </div>
+  </div>
+
+  <div class="flex gap-3 mt-5">
+    <input id="chatInput"
+      type="text"
+      placeholder="Type message..."
+      class="flex-1 p-4 rounded-2xl bg-black/30 border border-slate-600 outline-none">
+
+    <button onclick="sendMessage()"
+      class="bg-slate-700 hover:bg-slate-600 px-6 rounded-2xl font-bold glow">
+      Send
+    </button>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="grid md:grid-cols-3 gap-5">
+
+  <div class="glass rounded-3xl p-6 card text-center">
+    <div class="text-6xl mb-4">🎯</div>
+    <h3 class="text-2xl font-bold text-cyan-300 mb-3">HEADSHOT BOOST</h3>
+    <p class="text-slate-300">Perfect settings for drag headshots.</p>
+  </div>
+
+  <div class="glass rounded-3xl p-6 card text-center">
+    <div class="text-6xl mb-4">⚡</div>
+    <h3 class="text-2xl font-bold text-cyan-300 mb-3">FAST DPI</h3>
+    <p class="text-slate-300">Smart DPI based on device & RAM.</p>
+  </div>
+
+  <div class="glass rounded-3xl p-6 card text-center">
+    <div class="text-6xl mb-4">🔥</div>
+    <h3 class="text-2xl font-bold text-cyan-300 mb-3">SMOOTH GAMEPLAY</h3>
+    <p class="text-slate-300">Balanced gameplay for all devices.</p>
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<section class="glass rounded-[35px] p-8 text-center">
+  <h2 class="text-4xl font-bold text-cyan-300 mb-4">
+    👨‍💻 DEVELOPER NIROB
+  </h2>
+
+  <p class="text-slate-300 text-lg mb-5">
+    Gaming + Coding = Passion 💖
+  </p>
+
+  <div class="flex justify-center gap-5 text-4xl">
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-tiktok"></i></a>
+    <a href="#"><i class="fab fa-youtube"></i></a>
+  </div>
+</section>
+
+</div>
+</div>
+
+<script>
+const correctPassword = 'nirob123';
+let aiEnabled = true;
+
+function login(){
+  const password = document.getElementById('password').value;
+  const message = document.getElementById('loginMessage');
+
+  if(password === correctPassword){
+    document.getElementById('loginPage').style.display='none';
+    document.getElementById('website').classList.remove('hidden');
+  }else{
+    message.innerText='❌ Wrong Password';
+    message.classList.add('text-red-400');
+  }
+}
+
+function generateSensi(){
+  const mobile = document.getElementById('mobile').value;
+  const ram = document.getElementById('ram').value;
+  const mode = document.getElementById('mode').value;
+
+  let general = 95;
+  let redDot = 90;
+  let scope2 = 82;
+  let scope4 = 70;
+  let sniper = 50;
+  let dpi = 620;
+
+  if(ram === '2 GB') dpi = 480;
+  if(ram === '3 GB') dpi = 520;
+  if(ram === '4 GB') dpi = 580;
+  if(ram === '6 GB') dpi = 620;
+  if(ram === '8 GB') dpi = 680;
+  if(ram === '12 GB') dpi = 720;
+
+  if(mobile.includes('iPhone')){
+    general = 85;
+    redDot = 80;
+    scope2 = 75;
+    scope4 = 60;
+    sniper = 45;
+    dpi += 50;
+  }
+
+  if(mode === 'Headshot'){
+    general += 5;
+    redDot += 5;
+  }
+
+  if(mode === 'Smooth Gameplay'){
+    general -= 5;
+    redDot -= 5;
+  }
+
+  document.getElementById('result').classList.remove('hidden');
+
+  setValue('general',general);
+  setValue('redDot',redDot);
+  setValue('scope2',scope2);
+  setValue('scope4',scope4);
+  setValue('sniper',sniper);
+  setValue('dpi',dpi);
+}
+
+function setValue(id,value){
+  document.getElementById(id).innerText = value;
+}
+
+function toggleAI(){
+  aiEnabled = !aiEnabled;
+  const btn = document.getElementById('aiButton');
+
+  if(aiEnabled){
+    btn.innerText='AI: ON';
+  }else{
+    btn.innerText='AI: OFF';
+  }
+}
+
+function sendMessage(){
+  if(!aiEnabled) return;
+
+  const input = document.getElementById('chatInput');
+  const chatBox = document.getElementById('chatBox');
+
+  const text = input.value.trim();
+
+  if(text === '') return;
+
+  chatBox.innerHTML += `
+  <div class="mb-4 text-right">
+    <div class="bg-cyan-700 inline-block px-4 py-3 rounded-2xl max-w-[80%]">
+      ${text}
+    </div>
+  </div>`;
+
+  let reply = '🎮 Best Sensi: General 95 • Red Dot 90 • DPI 620 • AI Stability 99%';
+
+  if(text.toLowerCase().includes('headshot')){
+    reply = '🎯 Headshot AI Mode: General 100 • Red Dot 95 • DPI 680 • Drag Boost Enabled';
+  }
+
+  if(text.toLowerCase().includes('iphone')){
+    reply = '📱 iPhone AI Profile: General 85 • Red Dot 80 • DPI 720 • Ultra Smooth Active';
+  }
+
+  setTimeout(()=>{
+    chatBox.innerHTML += `
+    <div class="mb-4">
+      <div class="bg-slate-700 inline-block px-4 py-3 rounded-2xl max-w-[80%]">
+        🤖 ${reply}
+      </div>
+    </div>`;
+
+    chatBox.scrollTop = chatBox.scrollHeight;
+  },700);
+
+  saveChat(text);
+  input.value = '';
+}
+
+const titles = [
+  '🤖 AI SENSITIVITY TOOL',
+  '🎯 PERFECT HEADSHOT SYSTEM',
+  '⚡ LIVE DPI BOOSTER',
+  '🔥 PRO GAMING EXPERIENCE'
+];
+
+let titleIndex = 0;
+
+setInterval(()=>{
+  document.getElementById('mainTitle').innerText = titles[titleIndex];
+  titleIndex = (titleIndex + 1) % titles.length;
+},4000);
+</script>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_AUTH_DOMAIN",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_STORAGE_BUCKET",
+  messagingSenderId: "YOUR_SENDER_ID",
+  appId: "YOUR_APP_ID"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+window.saveChat = async function(message){
+  try{
+    await addDoc(collection(db,"messages"),{
+      text: message,
+      time: Date.now()
+    });
+  }catch(e){
+    console.log(e);
+  }
+}
+</script>
+</body>
+</html>
